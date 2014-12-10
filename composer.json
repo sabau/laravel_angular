@@ -1,0 +1,12 @@
+{
+	"name": "sabau/larvular",
+	"description": "let's play with Laravel and AngularJs, maybe also parse.com will fit",
+	"minimum-stability": "stable",
+	"license": "proprietary",
+	"authors": [
+		{
+			"name": "Karoly Szabo",
+			"email": "szabo.karoly.a@gmail.com"
+		}
+	]
+}
