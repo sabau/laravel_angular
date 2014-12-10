@@ -28,6 +28,9 @@ app.config(function($routeProvider, $locationProvider){
 	})
 	.when('/dashboard',{
 		templateUrl:'js/templates/dashboard.html'
+	})
+	.when('/add',{
+		templateUrl:'js/templates/add.html',
+		controller:'PostController'
 	});
-
 });
