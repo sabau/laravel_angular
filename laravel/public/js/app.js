@@ -32,5 +32,9 @@ app.config(function($routeProvider, $locationProvider){
 	.when('/add',{
 		templateUrl:'js/templates/add.html',
 		controller:'PostController'
+	})
+	.when('/edit/:id',{
+		templateUrl:'js/templates/edit.html',
+		controller:'EditPostController'
 	});
 });

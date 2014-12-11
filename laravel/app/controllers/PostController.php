@@ -21,7 +21,15 @@ class PostController extends \BaseController {
 	 */
 	public function create()
 	{
-		//
+		$new = new Post;
+		$new->title = Input::get('title');
+		$new->content = Input::get('content');
+
+		if($new->save()){
+			return array('status'=>'Saved!');
+		}
+
+		return array('status'=>'Not Saved!');
 	}
 
 
@@ -44,8 +52,7 @@ class PostController extends \BaseController {
 	 */
 	public function show($id)
 	{
-		$post = Post::find($id);
-		return $post;
+		return Post::find($id);
 	}
 
 
@@ -69,7 +76,19 @@ class PostController extends \BaseController {
 	 */
 	public function update($id)
 	{
-		//
+		$post = Post::find($id);
+
+		if($post){
+			$post->title    = Input::get('title');
+			$post->content  = Input::get('content');
+
+			if($post->save()){
+				return array('status'=>'Updated!');
+			}else{
+				return array('status'=>'Could not update!');
+			}
+		}
+		return array('status'=>'Could not find post!');
 	}
 
 
