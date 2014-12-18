@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Angular JS Dashboard</title>
+	<title></title>
 </head>
 <body>
-<h1>The Most Dashing of Boards</h1>
+<h1>My account</h1>
 <div class="col-md-3 well">
 	<a class="btn btn-primary" href="#/add">Create New Post</a>
 </div><!--3cols-->
@@ -14,11 +14,13 @@
 			<th></th>
 			<th>id</th>
 			<th>title</th>
+            <th></th>
 		</tr>
 		<tr ng-repeat="post in posts">
 			<td><a href="#/edit/{{post.id}}" class="btn btn-success btn-xs">edit</a></td>
 			<td>{{post.id}}</td>
 			<td>{{post.title}}</td>
+            <td><button ng-click="deletePost(post.id)" class="btn btn-warning">DELETE</button></td>
 		</tr>
 	</table>
 </div><!--9cols-->

@@ -11,7 +11,9 @@ var app = angular.module('karolyApp',[
 //AuthService
 	'AuthSrvc',
 	//CRUDService
-	'CRUDSrvc'
+	'CRUDSrvc',
+    //Angular Flash
+    'ngFlash'
 ]);
 
 app.run(function(){
@@ -23,18 +25,23 @@ app.config(function($routeProvider, $locationProvider){
 
 	$routeProvider
 	.when('/',{
-		templateUrl:'js/templates/login.html',
+		templateUrl:'/js/templates/login.html',
 		controller:'LoginController'
 	})
 	.when('/dashboard',{
-		templateUrl:'js/templates/dashboard.html'
+		templateUrl:'/js/templates/dashboard.html',
+        controller:'PostController'
 	})
 	.when('/add',{
-		templateUrl:'js/templates/add.html',
+		templateUrl:'/js/templates/add.html',
 		controller:'PostController'
 	})
 	.when('/edit/:id',{
-		templateUrl:'js/templates/edit.html',
-		controller:'EditPostController'
-	});
+		templateUrl:'/js/templates/edit.html',
+		controller:'PostController'
+	})
+    .when('/delete/:id',{
+        templateUrl:'/js/templates/dashboard.html',
+        controller:'PostController'
+    });
 });

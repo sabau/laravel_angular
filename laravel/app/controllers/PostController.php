@@ -26,10 +26,10 @@ class PostController extends \BaseController {
 		$new->content = Input::get('content');
 
 		if($new->save()){
-			return array('status'=>'Saved!');
+			return array('status'=>'Saved!', 'success'=>1);
 		}
 
-		return array('status'=>'Not Saved!');
+		return array('status'=>'Not Saved!', 'success'=>0);
 	}
 
 
@@ -40,7 +40,15 @@ class PostController extends \BaseController {
 	 */
 	public function store()
 	{
-		//
+        $new = new Post;
+        $new->title = Input::get('title');
+        $new->content = Input::get('content');
+
+        if($new->save()){
+            return array('status'=>'Saved!', 'success'=>1);
+        }
+
+        return array('status'=>'Not Saved!', 'success'=>0);
 	}
 
 
@@ -83,12 +91,12 @@ class PostController extends \BaseController {
 			$post->content  = Input::get('content');
 
 			if($post->save()){
-				return array('status'=>'Updated!');
+				return array('status'=>'Updated!', 'success'=>1);
 			}else{
-				return array('status'=>'Could not update!');
+				return array('status'=>'Could not update!', 'success'=>0);
 			}
 		}
-		return array('status'=>'Could not find post!');
+		return array('status'=>'Could not find post!', 'success'=>0);
 	}
 
 
@@ -100,8 +108,14 @@ class PostController extends \BaseController {
 	 */
 	public function destroy($id)
 	{
-		//
+        $post= Post::find($id);
+        if ($post) {
+            if ($post->delete()) {
+                return array('status' => 'Deleted!', 'success' => 1);
+            } else {
+                return array('status' => 'Can not delete!', 'success' => 0);
+            }
+        }
+        return array('status'=>'Could not find post!', 'success'=>0);
 	}
-
-
 }
