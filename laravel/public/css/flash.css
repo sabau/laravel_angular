@@ -1,9 +1,0 @@
-.flash-message.ng-enter {
-    animation-name: fadeIn;
-    animation-duration: 1s;
-}
-
-.flash-message.ng-leave {
-    animation-name: fadeOut;
-    animation-duration: 1s;
-}

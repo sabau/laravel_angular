@@ -7,6 +7,7 @@
 <h1>Add a New Post</h1>
 <div class="col-md-12 well"><a href="#/dashboard"><< Back to Dashboard</a></div>
 <div class="col-md-12">
+    <div flash-messages></div>
 	<form>
 		<div class="form-group">
 			<label for="title">Post Title</label>
@@ -16,7 +17,6 @@
 			<textarea ng-model="new.content" class="form-control" cols="30" rows="10"></textarea>
 		</div>
 		<button ng-click="createPost()" class="btn btn-success">Save</button>
-		<p class="bg-info">{{flash}}</p>
 	</form>
 </div>
 
