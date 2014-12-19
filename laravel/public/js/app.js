@@ -3,6 +3,8 @@
  */
 
 var app = angular.module('karolyApp',[
+    'ng',
+    'ngSanitize',
 	'ngRoute',
 //Login
 	'LoginCtrl',

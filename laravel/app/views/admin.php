@@ -11,6 +11,7 @@
 	<!--angular-->
 	<script src="/lib/angular.js"></script>
 	<script src="/lib/angular-route.js"></script>
+    <script src="/lib/angular-sanitize.js"></script>
     <script src="/lib/angular-flash.js"></script>
 
 	<!--angular ap[p-->

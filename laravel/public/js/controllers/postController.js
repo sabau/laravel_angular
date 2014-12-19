@@ -2,9 +2,9 @@
  * Created by sabau on 12/10/14.
  */
 
-var post = angular.module('PostCtrl',[]);
+var post = angular.module('PostCtrl',["ng","ngFlash"]);
 
-post.controller('PostController',function($scope,$routeParams,CRUD){
+post.controller('PostController',function($scope,$routeParams,CRUD, $flash){
     $scope.postId = $routeParams.id;
     if ($scope.postId != undefined){
         var getPost = CRUD.get($routeParams.id);
@@ -20,7 +20,8 @@ post.controller('PostController',function($scope,$routeParams,CRUD){
                     keyval = null;
                 for( ; i < this.length; i++){
                     if(this[i].id == key){
-                        keyval = this.splice(i, 1);
+                        keyvalthis[i].title;
+                        this.splice(i, 1);
                         break;
                     }
                 }
@@ -32,13 +33,13 @@ post.controller('PostController',function($scope,$routeParams,CRUD){
 	$scope.createPost = function(){
 		var request = CRUD.create($scope.new);
 		request.success(function(response){
-			$scope.flash = response.status;
+            $flash(response.status, { type: 'info' , duration: 1000});
 		});
 	};
     $scope.updatePost = function(){
         var request = CRUD.update($scope.postId,$scope.post);
         request.success(function(response){
-            $scope.flash = response.status;
+            $flash(response.status, { type: 'info' , duration: 1000});
         });
     };
 
@@ -50,7 +51,7 @@ post.controller('PostController',function($scope,$routeParams,CRUD){
                 //remove the deleted post from the list
                 response.status += " Element:" + $scope.posts.remove_key(postId);
             }
-            $scope.flash = response.status;
+            $flash(response.status, { type: 'info' ,persistent: 1});
         });
     };
 });
