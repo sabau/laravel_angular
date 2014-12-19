@@ -20,7 +20,7 @@ post.controller('PostController',function($scope,$routeParams,CRUD, $flash){
                     keyval = null;
                 for( ; i < this.length; i++){
                     if(this[i].id == key){
-                        keyvalthis[i].title;
+                        keyval = this[i].title;
                         this.splice(i, 1);
                         break;
                     }
@@ -33,7 +33,7 @@ post.controller('PostController',function($scope,$routeParams,CRUD, $flash){
 	$scope.createPost = function(){
 		var request = CRUD.create($scope.new);
 		request.success(function(response){
-            $flash(response.status, { type: 'info' , duration: 1000});
+            $flash(response.status, { type: 'info' , persist: 1});
 		});
 	};
     $scope.updatePost = function(){
@@ -51,7 +51,7 @@ post.controller('PostController',function($scope,$routeParams,CRUD, $flash){
                 //remove the deleted post from the list
                 response.status += " Element:" + $scope.posts.remove_key(postId);
             }
-            $flash(response.status, { type: 'info' ,persistent: 1});
+            $flash(response.status, { type: 'warn' ,persist: 1});
         });
     };
 });

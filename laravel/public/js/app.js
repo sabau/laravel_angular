@@ -5,6 +5,7 @@
 var app = angular.module('karolyApp',[
     'ng',
     'ngSanitize',
+    'ngAnimate',
 	'ngRoute',
 //Login
 	'LoginCtrl',

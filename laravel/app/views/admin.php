@@ -3,16 +3,18 @@
 <head>
 	<title>Karoly Administration</title>
 	<!--css-->
-	<link rel="stylesheet" href="/lib/bootstrap.min.css"/>
+	<link rel="stylesheet" href="/lib/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/lib/css/animate.css"/>
 
 	<!--js-->
-	<script src="/lib/jquery.min.js"></script>
+	<script src="/lib/js/jquery.min.js"></script>
 
 	<!--angular-->
-	<script src="/lib/angular.js"></script>
-	<script src="/lib/angular-route.js"></script>
-    <script src="/lib/angular-sanitize.js"></script>
-    <script src="/lib/angular-flash.js"></script>
+	<script src="/lib/js/angular.js"></script>
+	<script src="/lib/js/angular-route.js"></script>
+    <script src="/lib/js/angular-animate.min.js"></script>
+    <script src="/lib/js/angular-sanitize.js"></script>
+    <script src="/lib/js/angular-flash.js"></script>
 
 	<!--angular ap[p-->
 	<script src="/js/app.js"></script>
