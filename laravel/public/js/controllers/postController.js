@@ -2,9 +2,10 @@
  * Created by sabau on 12/10/14.
  */
 
-var post = angular.module('PostCtrl',["ng","ngFlash"]);
+var post = angular.module('PostCtrl',["ng","mgcrea.ngStrap","mgcrea.ngStrap.modal","mgcrea.ngStrap.alert"]);
 
-post.controller('PostController',function($scope,$routeParams,CRUD, $flash){
+post.controller('PostController',function($scope,$routeParams,CRUD, $alert){
+    $scope.title="Post";
     $scope.postId = $routeParams.id;
     if ($scope.postId != undefined){
         var getPost = CRUD.get($routeParams.id);
@@ -33,13 +34,29 @@ post.controller('PostController',function($scope,$routeParams,CRUD, $flash){
 	$scope.createPost = function(){
 		var request = CRUD.create($scope.new);
 		request.success(function(response){
-            $flash(response.status, { type: 'info' , persist: 1});
+            $alert({
+                title: $scope.title + " message service",
+                content: response.status,
+                container: 'body',
+                placement: 'top',
+                keyboard:"true",
+                type: 'info',
+                duration: 200,
+                show: true});
 		});
 	};
     $scope.updatePost = function(){
         var request = CRUD.update($scope.postId,$scope.post);
         request.success(function(response){
-            $flash(response.status, { type: 'info' , duration: 1000});
+            $alert({
+                title: $scope.title + " message service",
+                content: response.status,
+                placement: 'top',
+                container: 'body',
+                keyboard:"true",
+                type: 'info',
+                duration: 2,
+                show: true});
         });
     };
 
@@ -51,7 +68,14 @@ post.controller('PostController',function($scope,$routeParams,CRUD, $flash){
                 //remove the deleted post from the list
                 response.status += " Element:" + $scope.posts.remove_key(postId);
             }
-            $flash(response.status, { type: 'warn' ,persist: 1});
+            $alert({
+                title: $scope.title + " message service",
+                content: response.status,
+                placement: 'top-center',
+                container: 'body',
+                type: 'warn',
+                duration: 2,
+                show: true});
         });
     };
 });

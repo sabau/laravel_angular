@@ -7,6 +7,9 @@ var app = angular.module('karolyApp',[
     'ngSanitize',
     'ngAnimate',
 	'ngRoute',
+    'mgcrea.ngStrap',
+    'mgcrea.ngStrap.modal',
+    "mgcrea.ngStrap.alert",
 //Login
 	'LoginCtrl',
 //Posts
@@ -14,9 +17,7 @@ var app = angular.module('karolyApp',[
 //AuthService
 	'AuthSrvc',
 	//CRUDService
-	'CRUDSrvc',
-    //Angular Flash
-    'ngFlash'
+	'CRUDSrvc'
 ]);
 
 app.run(function(){
@@ -25,7 +26,6 @@ app.run(function(){
 
 //This will handle all of our routing
 app.config(function($routeProvider, $locationProvider){
-
 	$routeProvider
 	.when('/',{
 		templateUrl:'/templates/login.html',
@@ -46,5 +46,11 @@ app.config(function($routeProvider, $locationProvider){
     .when('/delete/:id',{
         templateUrl:'/templates/dashboard.html',
         controller:'PostController'
+    });
+})
+.config(function($alertProvider) {
+    angular.extend($alertProvider.defaults, {
+        animation: 'am-fade-and-slide-top',
+        placement: 'top'
     });
 });

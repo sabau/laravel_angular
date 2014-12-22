@@ -3,25 +3,26 @@
 <head>
 	<title>Karoly Administration</title>
 	<!--css-->
-	<link rel="stylesheet" href="/lib/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="/lib/css/animate.css"/>
-
+	<link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/fonts/glyphicons-halflings-regular.woff"/>
+    <link rel="stylesheet" href="/lib/angular-motion/dist/angular-motion.min.css"/>
 	<!--js-->
-	<script src="/lib/js/jquery.min.js"></script>
+	<script src="/lib/jquery/dist/jquery.min.js"></script>
 
 	<!--angular-->
-	<script src="/lib/js/angular.js"></script>
-	<script src="/lib/js/angular-route.js"></script>
-    <script src="/lib/js/angular-animate.min.js"></script>
-    <script src="/lib/js/angular-sanitize.js"></script>
-    <script src="/lib/js/angular-flash.js"></script>
+	<script src="/lib/angular/angular.min.js"></script>
+	<script src="/lib/angular-route/angular-route.min.js"></script>
+    <script src="/lib/angular-animate/angular-animate.min.js"></script>
+    <script src="/lib/angular-sanitize/angular-sanitize.min.js"></script>
+    <script src="/lib/angular-strap/dist/angular-strap.min.js"></script>
+    <script src="/lib/angular-strap/dist/angular-strap.tpl.min.js"></script>
 
-	<!--angular ap[p-->
+	<!--angular app-->
 	<script src="/js/app.js"></script>
 	<!--angular controllers-->
 	<script src="/js/controllers/loginController.js"></script>
 	<script src="/js/controllers/postController.js"></script>
-
 	<!--angular services-->
 	<script src="/js/services/authService.js"></script>
 	<script src="/js/services/crudService.js"></script>

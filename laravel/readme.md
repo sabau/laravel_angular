@@ -23,3 +23,34 @@ Documentation for the entire framework can be found on the [Laravel website](htt
 ### License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](http://opensource.org/licenses/MIT)
+
+
+
+
+/*
+* BOWER.JSON
+*
+* 		"lodash": "bestiejs/lodash",
+ "jquery": "jquery/jquery#2.0.3",
+ "font-awesome": "~3",
+ "bootstrap": "twbs/bootstrap#3.0.3",
+ "ng": "angular/bower-angular",
+ "ng-router": "angular/bower-angular-route",
+ "ng-sanitize": "angular/bower-angular-sanitize",
+ "ng-cookies": "angular/bower-angular-cookies",
+ "ng-i18n": "angular/bower-angular-i18n",
+ "ng-resource": "angular/bower-angular-resource",
+ "ui-bootstrap": "angular-ui/bootstrap-bower",
+ "ui-router": "angular-ui/ui-router",
+ "ui-utils": "angular-ui/ui-utils",
+ "ng-rest": "mgonto/restangular",
+ "ng-translate": "PascalPrecht/bower-angular-translate",
+ "ng-captcha": "VividCortex/angular-recaptcha",
+ "ng-storage": "agrublev/angularLocalStorage",
+ "ng-upload": "danialfarid/angular-file-upload",
+ "ie-json": "bestiejs/json3",
+ "ie-html5": "aFarkas/html5shiv",
+ "ng-table": "esvit/ng-table",
+ "jquery" : "jquery/jquery"
+*
+* */
