@@ -17,6 +17,7 @@
     <script src="/lib/angular-sanitize/angular-sanitize.min.js"></script>
     <script src="/lib/angular-strap/dist/angular-strap.min.js"></script>
     <script src="/lib/angular-strap/dist/angular-strap.tpl.min.js"></script>
+    <script src="/lib/satellizer/satellizer.min.js"></script>
 
 	<!--angular app-->
 	<script src="/js/app.js"></script>

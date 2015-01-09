@@ -26,6 +26,7 @@
       "angular-animate":"*",
       "angular-strap":"*",
       "angular-route":"*",
-      "jquery":"*"
+      "jquery":"*",
+      "satellizer":"*"
   }
 }

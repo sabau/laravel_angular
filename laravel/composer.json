@@ -5,7 +5,11 @@
 	"license": "MIT",
 	"type": "project",
 	"require": {
-		"laravel/framework": "4.2.*"
+		"laravel/framework": "4.*",
+        "tymon/jwt-auth": "*",
+        "guzzlehttp/guzzle": "*",
+        "firebase/php-jwt": "*",
+        "guzzlehttp/oauth-subscriber": "*"
 	},
 	"autoload": {
 		"classmap": [

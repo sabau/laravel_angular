@@ -5,6 +5,6 @@
 	<title></title>
 </head>
 <body>
-<h1>Blog Goes Here</h1>
+<h1>Site Goes Here</h1>
 </body>
 </html>

@@ -1,5 +1,4 @@
 <?php
-
 /*
 |--------------------------------------------------------------------------
 | Application & Route Filters
@@ -10,18 +9,14 @@
 | application. Here you may also register your custom route filters.
 |
 */
-
 App::before(function($request)
 {
-	//
+    //
 });
-
-
 App::after(function($request, $response)
 {
-	//
+    //
 });
-
 /*
 |--------------------------------------------------------------------------
 | Authentication Filters
@@ -32,28 +27,24 @@ App::after(function($request, $response)
 | integrates HTTP Basic authentication for quick, simple checking.
 |
 */
-
 Route::filter('auth', function()
 {
-	if (Auth::guest())
-	{
-		if (Request::ajax())
-		{
-			return Response::make('Unauthorized', 401);
-		}
-		else
-		{
-			return Redirect::guest('login');
-		}
-	}
+    if (!Request::header('Authorization'))
+    {
+        return Response::json(array('message' => 'Please make sure your request has an Authorization header'), 401);
+    }
+    $token = explode(' ', Request::header('Authorization'))[1];
+    $payloadObject = JWT::decode($token, Config::get('secrets.TOKEN_SECRET'));
+    $payload = json_decode(json_encode($payloadObject), true);
+    if ($payload['exp'] < time())
+    {
+        Response::json(array('message' => 'Token has expired'));
+    }
 });
-
-
 Route::filter('auth.basic', function()
 {
-	return Auth::basic();
+    return Auth::basic();
 });
-
 /*
 |--------------------------------------------------------------------------
 | Guest Filter
@@ -64,12 +55,10 @@ Route::filter('auth.basic', function()
 | response will be issued if they are, which you may freely change.
 |
 */
-
 Route::filter('guest', function()
 {
-	if (Auth::check()) return Redirect::to('/');
+    if (Auth::check()) return Redirect::to('/');
 });
-
 /*
 |--------------------------------------------------------------------------
 | CSRF Protection Filter
@@ -80,11 +69,10 @@ Route::filter('guest', function()
 | session does not match the one given in this request, we'll bail.
 |
 */
-
 Route::filter('csrf', function()
 {
-	if (Session::token() !== Input::get('_token'))
-	{
-		throw new Illuminate\Session\TokenMismatchException;
-	}
+    if (Session::token() != Input::get('_token'))
+    {
+        throw new Illuminate\Session\TokenMismatchException;
+    }
 });

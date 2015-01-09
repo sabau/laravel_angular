@@ -22,7 +22,20 @@ Route::get('/admin', function()
 });
 
 Route::group(array('prefix'=>'/api'),function(){
-	Route::post('login/auth','AuthController@Login');
-	Route::get('login/destroy','AuthController@Logout');
-	Route::resource('posts','PostController');
+
+    //Route::get('me', array('before' => 'auth', 'uses' => 'UserController@getUser'));
+    //Route::put('me', array('before' => 'auth', 'uses' => 'UserController@updateUser'));
+    Route::post('auth/login','AuthController@Login');
+    Route::get('auth/destroy','AuthController@Logout');
+    Route::post('auth/signup', 'AuthController@signup');
+    Route::post('auth/facebook', 'AuthController@facebook');
+    Route::post('auth/foursquare', 'AuthController@foursquare');
+    Route::post('auth/github', 'AuthController@github');
+    Route::post('auth/google', 'AuthController@google');
+    Route::post('auth/linkedin', 'AuthController@linkedin');
+    Route::get('auth/twitter', 'AuthController@twitter');
+    Route::get('auth/unlink/{provider}', array('before' => 'auth', 'uses' => 'AuthController@unlink'));
+
+
+	Route::resource('posts',array('before' => 'auth', 'uses' => 'PostController'));
 });
